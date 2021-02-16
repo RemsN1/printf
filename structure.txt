@@ -1,0 +1,6 @@
+faire la structure
+trimballer un pointeur vers la structure dans le putchar pour compter les
+	caracteres imprimes
+handle conversion affiche aussi les flags ?
+ou afficher les flags separement ?
+refaire les putnbr base, unsigned
