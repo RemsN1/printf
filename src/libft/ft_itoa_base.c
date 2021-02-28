@@ -6,11 +6,12 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 13:43:08 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 15:54:23 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/21 16:31:38 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdlib.h"
 
 static int	check_base(char *base)
 {
@@ -33,7 +34,7 @@ static int	check_base(char *base)
 	return (i);
 }
 
-static char	*allocate(int base_10, int count, char *res)
+static char	*allocate(long long base_10, int count, char *res)
 {
 	if (base_10 > 0)
 	{
@@ -78,17 +79,18 @@ static char	*itoa_base(long long base_10, char *base_to, char *res, int count)
 
 char	*ft_itoa_base(long long nbr, char *base_to)
 {
-	int		len_to;
+	int		len;
 	char	*res;
 	int		count;
 
+	len = 0;
 	count = 0;
 	if (!(len = check_base(base_to)))
 		return (NULL);
 	res = 0;
 	if (nbr == 0)
 		++count;
-	res = allocate(base_10, count, res);
+	res = allocate(nbr, count, res);
 	res = itoa_base(nbr, base_to, res, count);
 	if (nbr == 0)
 		res[0] = base_to[0];

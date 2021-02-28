@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 08:29:47 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 16:00:59 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/21 17:05:26 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <unistd.h>
+# include "ft_printf.h"
 
 typedef struct	s_list
 {
@@ -53,7 +54,6 @@ char			*ft_itoa(long long n);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 int				ft_lstsize(t_list *lst);
@@ -64,7 +64,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
 char			*ft_itoa_base(long long nbr, char *base_to);
-void			ft_putnbr_base_fd(long long nb, int fd, char *base);
-void			ft_putnbr_fd_u(unsigned int n, int fd);
 
 #endif

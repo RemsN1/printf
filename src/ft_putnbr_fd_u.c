@@ -6,15 +6,15 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 14:11:34 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 14:13:01 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/21 16:58:34 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd_u(unsigned int n, int fd)
+void	ft_putnbr_fd_u(unsigned int n, int fd, t_struct *s)
 {
 	if (n > 9)
-		ft_putnbr_fd_u(n / 10, fd);
-	ft_putchar_fd(n % 10 + 48, fd);
+		ft_putnbr_fd_u(n / 10, fd, s);
+	ft_putchar_fd(n % 10 + 48, fd, s);
 }

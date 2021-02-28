@@ -6,16 +6,16 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 13:34:26 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 16:01:14 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/28 17:17:28 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long long	check_base(char *base)
+static int	check_base(char *base)
 {
-	long long	i;
-	long long	j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (base[++i])
@@ -33,9 +33,10 @@ static long long	check_base(char *base)
 	return (i);
 }
 
-void				ft_putnbr_base_fd(long long nb, int fd, char *base)
+void		ft_putnbr_base_fd(unsigned int nb, int fd, char *base,
+		t_struct *s)
 {
-	long long	len;
+	int		len;
 
 	len = check_base(base);
 	if (nb < 0)
@@ -43,7 +44,7 @@ void				ft_putnbr_base_fd(long long nb, int fd, char *base)
 		write(fd, "-", 1);
 		nb = -nb;
 	}
-	if (n > 9)
-		ft_putnbr_base_fd(n / len, fd);
-	ft_putchar_fd(base[n % len], fd);
+	if (nb > 9)
+		ft_putnbr_base_fd(nb / len, fd, base, s);
+	ft_putchar_fd(base[nb % len], fd, s);
 }

@@ -1,7 +1,8 @@
-NAME    = libftprintf.a
+NAME    		= libftprintf.a
 
 SRCS_LIST		= handle_conversion.c handle_conversion2.c handle_flags.c \
-				  handle_flags2.c printf_utils.c printf.c
+				  handle_flags2.c printf_utils.c printf.c ft_putchar_fd.c \
+				  ft_putnbr_fd.c ft_putnbr_fd_u.c ft_putnbr_base_fd.c main.c \
 
 SRCS            = $(addprefix ${FOLDER}/, ${SRCS_LIST})
 
@@ -38,6 +39,6 @@ fclean:            clean
 re:                fclean all
 
 main: $(NAME)
-	$(CC) -I $(HEADER) -L. -lftprintf -lft -o test
+	$(CC) -I $(HEADER) -L. -lftprintf -o test
 
 .PHONY: all clean fclean re main

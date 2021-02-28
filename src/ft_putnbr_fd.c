@@ -6,18 +6,13 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:36:11 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 14:28:11 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/22 15:19:13 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	print_char(char c, int fd)
-{
-	write(fd, &c, 1);
-}
-
-void			ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd, t_struct *s)
 {
 	if (n == -2147483648)
 	{
@@ -30,6 +25,6 @@ void			ft_putnbr_fd(int n, int fd)
 		n = -n;
 	}
 	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	print_char(n % 10 + 48, fd);
+		ft_putnbr_fd(n / 10, fd, s);
+	ft_putchar_fd(n % 10 + 48, fd, s);
 }

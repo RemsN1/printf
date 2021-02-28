@@ -6,33 +6,31 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:36:39 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 15:54:05 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/28 17:04:52 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	parse(char *str, t_struct *s)
+void	parse(const char *str, t_struct *s)
 {
 	int		i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] && str[i] == '%')
+		if (str[i] == '%')
 		{
 			i += handle_flags(str + i, s);
 			handle_conversion(str + i, s);
-			if (str[i + 1] == 'd' || str[i + 1] == 'c' || str[i + 1] == 's'
-					|| str[i + 1] == 'p' || str[i + 1] == 'i'
-					|| str[i + 1] == 'x' || str[i + 1] == 'X'
-					|| str[i + 1] == '%')
-				++i;
+			++i;
 			init_struct(s);
-		}	
-		else
+		}
+		else if (str[i])
+		{
 			ft_putchar_fd(str[i], 1, s);
-		++i;
+			++i;
+		}
 	}
 }
 
@@ -47,7 +45,7 @@ void	init_struct(t_struct *s)
 	s->zero_precision = 0;
 }
 
-int		ft_printf(char *str, ...)
+int		ft_printf(const char *str, ...)
 {
 	t_struct s;
 

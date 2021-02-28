@@ -6,24 +6,24 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 17:21:34 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 16:03:20 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/28 15:07:54 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	print_c(t_struct *s)
 {
-	int		i;
+	unsigned char	c;
 
-	i = va_arg(s->next, int);
-	if (s->zero_precision == 1)
+	c = (unsigned char)va_arg(s->next, int);
+	if (s->zero_precision == 1 && c == 0)
 	{
-		p_conv(s, 0);
+		p_conv(s, 0, 0);
 		return ;
 	}
-	p_conv(s, 1);
-	ft_putchar_fd(1, i, s);
+	p_conv(s, 1, 0);
+	ft_putchar_fd(c, 1, s);
 	if (s->dash == 1)
 		print_space(s, s->width - 1);
 }

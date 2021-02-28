@@ -6,12 +6,12 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:23:02 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 16:04:27 by rribera          ###   ########.fr       */
+/*   Updated: 2021/02/28 17:18:07 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft.h"
 # include <stdarg.h>
@@ -32,17 +32,22 @@ typedef	struct	s_struct
 	va_list	next;
 }				t_struct;
 
-int		handle_dot(char *str, t_struct *s);
-int		handle_flags(char *str, t_struct *s);
+int		handle_dot(const char *str, t_struct *s);
+int		handle_flags(const char *str, t_struct *s);
 void	ft_putchar_fd(char c, int fd, t_struct *s);
-int		handle_conversion(char *str, t_struct *s);
+int		handle_conversion(const char *str, t_struct *s);
 void	init_struct(t_struct *s);
 void	print_space(t_struct *s, int nb);
 void	print_zero(t_struct *s, int nb);
-void	p_conv(t_struct *s, int len);
+void	p_conv(t_struct *s, int len, int neg);
 void	print_c(t_struct *s);
 void	print_s(t_struct *s);
 void	print_p(t_struct *s);
 int		handle_asterisk(t_struct *s, int a);
+int		ft_printf(const char *str, ...);
+void	ft_putnbr_fd(int n, int fd, t_struct *s);
+void	ft_putnbr_fd_u(unsigned int n, int fd, t_struct *s);
+void	ft_putnbr_base_fd(unsigned int nb, int fd, char *base, t_struct *s);
+void	print_minus(t_struct *s, int len, int i);
 
 # endif
