@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 13:43:08 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 16:31:38 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/02 16:09:39 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	check_base(char *base)
 	return (i);
 }
 
-static char	*allocate(long long base_10, int count, char *res)
+static char	*allocate(unsigned int base_10, int count, char *res)
 {
 	if (base_10 > 0)
 	{
@@ -49,24 +49,15 @@ static char	*allocate(long long base_10, int count, char *res)
 	return (res);
 }
 
-static char	*itoa_base(long long base_10, char *base_to, char *res, int count)
+static char	*itoa_base(unsigned int  base_10, char *base_to, char *res,
+		int count)
 {
-	unsigned long long	tmp;
-	int					j;
-	unsigned long long	cheu;
+	unsigned int	tmp;
+	int				j;
+	unsigned int	cheu;
 
-	if (base_10 < 0)
-	{
-		cheu = -base_10;
-		res[0] = '-';
-		++count;
-		j = 1;
-	}
-	else
-	{
-		j = 0;
-		cheu = base_10;
-	}
+	j = 0;
+	cheu = base_10;
 	res[count] = '\0';
 	while (count > j)
 	{
@@ -77,19 +68,24 @@ static char	*itoa_base(long long base_10, char *base_to, char *res, int count)
 	return (res);
 }
 
-char	*ft_itoa_base(long long nbr, char *base_to)
+char		*ft_itoa_base(unsigned int nbr, char *base_to)
 {
-	int		len;
-	char	*res;
-	int		count;
+	int				len;
+	char			*res;
+	int				count;
+	unsigned int	tmp;
 
 	len = 0;
-	count = 0;
+	count = 1;
 	if (!(len = check_base(base_to)))
 		return (NULL);
 	res = 0;
-	if (nbr == 0)
+	tmp = nbr;
+	while (tmp / len)
+	{
+		tmp /= len;
 		++count;
+	}
 	res = allocate(nbr, count, res);
 	res = itoa_base(nbr, base_to, res, count);
 	if (nbr == 0)

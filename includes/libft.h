@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 08:29:47 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 17:05:26 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/02 16:02:46 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
-char			*ft_itoa_base(long long nbr, char *base_to);
+char			*ft_itoa_base(unsigned int nbr, char *base_to);
 
 #endif

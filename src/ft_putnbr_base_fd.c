@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 13:34:26 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/28 17:17:28 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/02 15:35:55 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,10 @@ static int	check_base(char *base)
 void		ft_putnbr_base_fd(unsigned int nb, int fd, char *base,
 		t_struct *s)
 {
-	int		len;
+	unsigned int	len;
 
 	len = check_base(base);
-	if (nb < 0)
-	{
-		write(fd, "-", 1);
-		nb = -nb;
-	}
-	if (nb > 9)
+	if (nb > len)
 		ft_putnbr_base_fd(nb / len, fd, base, s);
 	ft_putchar_fd(base[nb % len], fd, s);
 }

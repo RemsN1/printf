@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 17:21:34 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/28 15:07:54 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/02 17:23:15 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,20 @@ void	print_c(t_struct *s)
 void	print_s(t_struct *s)
 {
 	char	*str;
-	int		i;
 	int		len;
 
-	i = -1;
 	str = va_arg(s->next, char*);
 	len = ft_strlen(str);
-	if (s->zero_precision == 1)
-		len = 0;
-	if (s->width != 0 && s->dash == 0)
+	if (str == NULL || s->zero_precision == 1)
 	{
-		if (s->zero == 0)
-			print_space(s, s->width - len);
-		else
-			print_zero(s, s->width - len);
+		p_str(s, 0, "");
+		if (s->dash == 1)
+			print_space(s, s->width);
+		return ;
 	}
-	if (s->precision > 0)
-		while (*str && ++i < s->precision)
-			ft_putchar_fd(1, *str, s);
-	else
-		ft_putstr_fd(str, 1);
+	p_str(s, len, str);
+	if (s->precision < len && s->precision != 0)
+		len = s->precision;
 	if (s->dash == 1)
 		print_space(s, s->width - len);
 }

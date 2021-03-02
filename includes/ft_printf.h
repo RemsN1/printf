@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:23:02 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/28 17:18:07 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/02 16:57:30 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ int		ft_printf(const char *str, ...);
 void	ft_putnbr_fd(int n, int fd, t_struct *s);
 void	ft_putnbr_fd_u(unsigned int n, int fd, t_struct *s);
 void	ft_putnbr_base_fd(unsigned int nb, int fd, char *base, t_struct *s);
-void	print_minus(t_struct *s, int len, int i);
+void	p_str(t_struct *s, int len, char *str);
 
 # endif
