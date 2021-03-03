@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:29:24 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/28 17:01:13 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/03 17:14:01 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,5 @@ int		handle_flags(const char *str, t_struct *s)
 		i += handle_asterisk(s, 0);	
 	if (str[i] && str[i] == '.')
 		i += handle_dot(str + i, s);
-	if (s->precision >= s->width && s->zero_precision == 0)
-		s->width = 0;
 	return (i);
 }

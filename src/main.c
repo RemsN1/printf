@@ -2,6 +2,6 @@
 
 int main()
 {
-	ft_printf("%6.6s\n", "test");
-	printf("%.s\n", "test");
+	ft_printf("%.09s\n", "jsp");
+	printf("%.09s\n", "jsp");
 }
