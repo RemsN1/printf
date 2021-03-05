@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:15:00 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/02 16:32:11 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/05 13:02:39 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ void	print_d(t_struct *s)
 	}
 	p_conv(s, len, i < 0 ? 1 : 0);
 	ft_putnbr_fd(i < 0 ? -i : i, 1, s);
-	if (s->dash == 1 && s->precision <= len)
+	if (s->dash == 1 && s->precision == len && i < 0)
+		print_space(s, s->width - len - 1);
+	else if (s->dash == 1 && s->precision <= len)
 		print_space(s, s->width - len);
 	else if (s->dash == 1 && s->precision > len)
 		print_space(s, s->width - s->precision - (i < 0 ? 1 : 0));
@@ -100,13 +102,13 @@ int		handle_conversion(const char *str, t_struct *s)
 	else if (*str == 's')
 		print_s(s);
 	else if (*str == 'c')
-		print_c(s);
+		print_c(s, str);
 	else if (*str == 'p')
 		print_p(s);
 	else if (*str == 'i')
 		print_d(s);
 	else if (*str == '%')
-		print_c(s);
+		print_c(s, str);
 	else
 		return (0);
 	return (1);

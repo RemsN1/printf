@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 13:43:08 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/02 16:09:39 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/04 10:33:45 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,12 @@ static char	*allocate(unsigned int base_10, int count, char *res)
 	return (res);
 }
 
-static char	*itoa_base(unsigned int  base_10, char *base_to, char *res,
+static char	*itoa_base(long long base_10, char *base_to, char *res,
 		int count)
 {
-	unsigned int	tmp;
+	long long		tmp;
 	int				j;
-	unsigned int	cheu;
+	long long		cheu;
 
 	j = 0;
 	cheu = base_10;
@@ -68,12 +68,12 @@ static char	*itoa_base(unsigned int  base_10, char *base_to, char *res,
 	return (res);
 }
 
-char		*ft_itoa_base(unsigned int nbr, char *base_to)
+char		*ft_itoa_base(long long nbr, char *base_to)
 {
 	int				len;
 	char			*res;
 	int				count;
-	unsigned int	tmp;
+	long long		tmp;
 
 	len = 0;
 	count = 1;

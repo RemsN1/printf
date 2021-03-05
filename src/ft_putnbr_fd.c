@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:36:11 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/22 15:19:13 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/04 11:35:24 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,10 @@
 
 void			ft_putnbr_fd(int n, int fd, t_struct *s)
 {
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd, s);
-	ft_putchar_fd(n % 10 + 48, fd, s);
+	unsigned int nb;
+
+	nb = n;
+	if (nb > 9)
+		ft_putnbr_fd(nb / 10, fd, s);
+	ft_putchar_fd(nb % 10 + 48, fd, s);
 }
