@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/16 16:36:39 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/05 14:03:49 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:02:00 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	init_struct(t_struct *s)
 	s->width = 0;
 	s->precision = 0;
 	s->zero_precision = 0;
+	s->zero_char = 0;
 }
 
 int		ft_printf(const char *str, ...)

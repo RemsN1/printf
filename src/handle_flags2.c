@@ -6,16 +6,28 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:46:21 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/05 15:59:05 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:00:31 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int		len(int a)
+{
+	int i;
+
+	i = 0;
+	while (a / 10)
+	{
+		a /= 10;
+		++i;
+	}
+	return (i);
+}
+
 int		handle_dot(const char *str, t_struct *s)
 {
 	int i;
-	int tmp;
 
 	i = 1;
 	if (str[i] == '*' || (str[i] == ' ' && str[i + 1] == '*'))
@@ -23,15 +35,10 @@ int		handle_dot(const char *str, t_struct *s)
 	else if (str[i] >= '0' && str[i] <= '9')
 	{
 		s->precision = ft_atoi(str + i);
-		tmp = s->precision;
 		if (str[i] == '0' && str[i + 1] > '0' && str[i + 1] <= '9')
 			++i;
 		++i;
-		while (tmp / 10)
-		{
-			tmp /= 10;
-			++i;
-		}
+		i += len(s->precision);
 	}
 	if (s->precision == 0)
 		s->zero_precision = 1;

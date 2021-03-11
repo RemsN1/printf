@@ -35,6 +35,11 @@ SRC = ft_memset.c \
 		ft_strlcat.c \
 		ft_putendl_fd.c \
 		ft_itoa_base.c \
+		ft_putnbr_base_fd.c \
+		ft_putnbr_fd.c \
+		ft_putnbr_fd_long.c \
+		ft_putnbr_fd_u.c \
+		ft_putchar_fd.c
 		
 OBJ = $(SRC:.c=.o)
 

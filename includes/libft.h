@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 08:29:47 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/04 10:35:33 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 13:20:28 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <unistd.h>
-# include "ft_printf.h"
 
 typedef struct	s_list
 {

@@ -6,11 +6,12 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/21 13:34:26 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/02 15:35:55 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 13:28:01 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 static int	check_base(char *base)
 {

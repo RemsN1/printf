@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:06:23 by rribera           #+#    #+#             */
-/*   Updated: 2021/01/08 15:35:24 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:00:53 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
 	size_t	len_tf;
-	
+
 	if (to_find[0] == '\0')
 		return ((char *)str);
 	i = 0;

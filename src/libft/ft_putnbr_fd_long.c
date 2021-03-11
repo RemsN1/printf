@@ -6,11 +6,12 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 10:07:24 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/05 13:11:10 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 13:29:14 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
 static long long	check_base(char *base)
 {
@@ -41,5 +42,5 @@ void				ft_putnbr_base_fd_long(long long n, int fd, char *base,
 	len = check_base(base);
 	if (n > len)
 		ft_putnbr_base_fd_long(n / len, fd, base, s);
-	ft_putchar_fd(base[n % len], fd,  s);
+	ft_putchar_fd(base[n % len], fd, s);
 }

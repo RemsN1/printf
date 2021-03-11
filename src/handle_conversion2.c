@@ -6,7 +6,7 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 17:21:34 by rribera           #+#    #+#             */
-/*   Updated: 2021/03/05 15:44:11 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:11:49 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 void	print_c(t_struct *s, const char *str)
 {
 	unsigned char	c;
-	
+
 	if (str[0] == '%')
 	{
 		c = '%';
 		s->precision = 0;
 		s->zero_precision = 0;
+		if (s->zero_char == 1)
+			s->zero = 1;
 	}
-	else	
+	else
 		c = (unsigned int)va_arg(s->next, int);
 	if (s->zero_precision == 1 && c == 0)
 	{
-		p_conv(s, 0, 0);
+		p_conv(s, 1, 0);
+		ft_putchar_fd(0, 1, s);
 		if (s->dash == 1)
 			print_space(s, s->width - 1);
 		return ;

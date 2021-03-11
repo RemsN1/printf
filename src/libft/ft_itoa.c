@@ -6,14 +6,14 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:43:22 by rribera           #+#    #+#             */
-/*   Updated: 2021/02/21 14:32:18 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:01:10 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*fill_result(int compt, long long  n, char *result)
+static char	*fill_result(int compt, long long n, char *result)
 {
 	unsigned long long	tmp;
 	unsigned long long	nbr;
