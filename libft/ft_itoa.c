@@ -6,18 +6,18 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:43:22 by rribera           #+#    #+#             */
-/*   Updated: 2021/01/08 15:52:32 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 14:01:10 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*fill_result(int compt, int n, char *result)
+static char	*fill_result(int compt, long long n, char *result)
 {
-	unsigned int	tmp;
-	unsigned int	nbr;
-	int				index;
+	unsigned long long	tmp;
+	unsigned long long	nbr;
+	int					index;
 
 	index = 0;
 	if (n < 0)
@@ -41,7 +41,7 @@ static char	*fill_result(int compt, int n, char *result)
 	return (result);
 }
 
-static char	*allocate(int compt, int n)
+static char	*allocate(int compt, long long n)
 {
 	char *result;
 
@@ -63,11 +63,11 @@ static char	*allocate(int compt, int n)
 	return (result);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long long n)
 {
-	int				compt;
-	char			*result;
-	unsigned int	nbr;
+	int					compt;
+	char				*result;
+	unsigned long long	nbr;
 
 	compt = 0;
 	if (n < 0)

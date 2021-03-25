@@ -17,7 +17,6 @@ SRC = ft_memset.c \
 		ft_strtrim.c \
 		ft_split.c \
 		ft_strmapi.c \
-		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_isalpha.c \
 		ft_isalnum.c \
@@ -35,7 +34,13 @@ SRC = ft_memset.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_itoa_base.c \
+		ft_putnbr_base_fd.c \
+		ft_putnbr_fd.c \
+		ft_putnbr_fd_long.c \
+		ft_putnbr_fd_u.c \
+		ft_putchar_fd.c
+		
 OBJ = $(SRC:.c=.o)
 
 BNS_SRC = ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	\
@@ -43,7 +48,10 @@ BNS_SRC = ft_lstnew.c	ft_lstadd_front.c	ft_lstsize.c	\
 			ft_lstmap.c		ft_lstdelone.c		ft_lstiter.c
 
 BNS = $(BNS_SRC)
+
 OBJBNS = $(BNS:.c=.o)
+
+INCLUDES = ../includes
 
 all : $(NAME)
 
@@ -60,7 +68,7 @@ so :
 	clang -shared -o libft.so $(OBJ) $(OBJBNS)
 
 %.o : %.c
-	$(CC) $(CFLAGS) -I. -c $^ -o $@
+	$(CC) $(CFLAGS) -I $(INCLUDES) -c $^ -o $@
 
 clean :
 	rm -rf $(OBJ) $(OBJBNS)

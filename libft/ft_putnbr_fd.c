@@ -6,30 +6,19 @@
 /*   By: rribera <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 18:36:11 by rribera           #+#    #+#             */
-/*   Updated: 2021/01/03 07:17:42 by rribera          ###   ########.fr       */
+/*   Updated: 2021/03/11 13:27:23 by rribera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 
-static	void	print_char(char c, int fd)
+void			ft_putnbr_fd(int n, int fd, t_struct *s)
 {
-	write(fd, &c, 1);
-}
+	unsigned int nb;
 
-void			ft_putnbr_fd(int n, int fd)
-{
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	print_char(n % 10 + 48, fd);
+	nb = n;
+	if (nb > 9)
+		ft_putnbr_fd(nb / 10, fd, s);
+	ft_putchar_fd(nb % 10 + 48, fd, s);
 }

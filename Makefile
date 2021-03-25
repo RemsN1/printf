@@ -1,7 +1,7 @@
 NAME    		= libftprintf.a
 
 SRCS_LIST		= handle_conversion.c handle_conversion2.c handle_flags.c \
-				  handle_flags2.c printf_utils.c printf.c main.c
+				  handle_flags2.c printf_utils.c printf.c
 
 SRCS            = $(addprefix ${FOLDER}/, ${SRCS_LIST})
 
@@ -10,17 +10,17 @@ OBJS            = ${SRCS:.c=.o}
 HEADER            = includes
 FOLDER            = src
 
-LIBFT             = src/libft
+LIBFT             = libft
 
 CC                = gcc
-CFLAGS            = 
+CFLAGS            = -Wall -Werror -Wextra
 RM                = rm -f
 
 all:            ${NAME}
 
 $(NAME):        ${OBJS}
 				@make -C $(LIBFT)
-				@cp src/libft/libft.a ./$(NAME)
+				@cp libft/libft.a ./$(NAME)
 				@ar -rcs ${NAME} ${OBJS}
 
 %.o: %.c
